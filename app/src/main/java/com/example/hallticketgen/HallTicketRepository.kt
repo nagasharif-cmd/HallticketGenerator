@@ -24,7 +24,20 @@ class HallTicketRepository(
             hallTicketDao.getTicket(rollNo)
 
         if (existing != null) {
-            return existing as HallTicketDetails?
+
+            val exam =
+                examDao.getExam()
+                    ?: return null
+
+            return HallTicketDetails(
+                hallTicketNumber = existing.hallTicketNumber,
+                rollNumber = student.rollNumber,
+                studentName = student.name,
+                className = student.className,
+                examName = exam.examName,
+                examDate = exam.examDate,
+                location = exam.location
+            )
         }
 
         val exam =
