@@ -1,4 +1,4 @@
-package com.example.hallticketgen.data.entity
+package com.example.hallticketgen.model.Db.data.entity
 
 data class HallTicketDetails( val hallTicketNumber: String,
                               val rollNumber: String,

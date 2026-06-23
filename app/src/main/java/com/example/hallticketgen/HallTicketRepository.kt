@@ -1,10 +1,10 @@
 package com.example.hallticketgen
 
-import com.example.hallticketgen.data.dao.ExamDao
-import com.example.hallticketgen.data.dao.HallTicketDao
-import com.example.hallticketgen.data.dao.StudentDao
-import com.example.hallticketgen.data.entity.HallTicket
-import com.example.hallticketgen.data.entity.HallTicketDetails
+import com.example.hallticketgen.model.Db.data.dao.ExamDao
+import com.example.hallticketgen.model.Db.data.dao.HallTicketDao
+import com.example.hallticketgen.model.Db.data.dao.StudentDao
+import com.example.hallticketgen.model.Db.data.entity.HallTicket
+import com.example.hallticketgen.model.Db.data.entity.HallTicketDetails
 
 class HallTicketRepository(
     private val studentDao: StudentDao,

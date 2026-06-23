@@ -1,9 +1,9 @@
-package com.example.hallticketgen.data.dao
+package com.example.hallticketgen.model.Db.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.example.hallticketgen.data.entity.HallTicket
+import com.example.hallticketgen.model.Db.data.entity.HallTicket
 
 
 @Dao

@@ -1,16 +1,16 @@
-package com.example.hallticketgen.Db
+package com.example.hallticketgen.model.Db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-import com.example.hallticketgen.data.dao.ExamDao
-import com.example.hallticketgen.data.dao.HallTicketDao
-import com.example.hallticketgen.data.dao.StudentDao
-import com.example.hallticketgen.data.entity.Exam
-import com.example.hallticketgen.data.entity.HallTicket
-import com.example.hallticketgen.data.entity.Student
+import com.example.hallticketgen.model.Db.data.dao.ExamDao
+import com.example.hallticketgen.model.Db.data.dao.HallTicketDao
+import com.example.hallticketgen.model.Db.data.dao.StudentDao
+import com.example.hallticketgen.model.Db.data.entity.Exam
+import com.example.hallticketgen.model.Db.data.entity.HallTicket
+import com.example.hallticketgen.model.Db.data.entity.Student
 
 @Database( entities = [
     Student::class,

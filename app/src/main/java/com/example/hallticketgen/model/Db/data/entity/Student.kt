@@ -1,4 +1,4 @@
-package com.example.hallticketgen.data.entity
+package com.example.hallticketgen.model.Db.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

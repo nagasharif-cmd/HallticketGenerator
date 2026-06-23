@@ -3,8 +3,9 @@ package com.example.hallticketgen.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hallticketgen.HallTicketRepository
-import com.example.hallticketgen.data.entity.HallTicketDetails
+import com.example.hallticketgen.model.Db.data.entity.HallTicketDetails
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
@@ -15,7 +16,7 @@ class HallTicketViewModel(
     private val _hallTicket =
         MutableStateFlow<HallTicketDetails?>(null)
 
-    val hallTicket =
+    val hallTicket: StateFlow<HallTicketDetails?> =
         _hallTicket.asStateFlow()
 
     fun generate(

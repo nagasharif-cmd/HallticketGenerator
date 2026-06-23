@@ -12,6 +12,8 @@ room3CommonJvm = "3.0.0-rc01"
 room3Runtime = "3.0.0-rc01"
 runtime = "1.11.3"
 ksp = "2.2.10-2.0.2"
+material3 = "1.4.0"
+uiGraphics = "1.11.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,6 +34,8 @@ androidx-room3-common-jvm = { group = "androidx.room3", name = "room3-common-jvm
 androidx-room3-runtime = { group = "androidx.room3", name = "room3-runtime", version.ref = "room3Runtime" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "runtime" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version = "2.6.1" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

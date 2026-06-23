@@ -4,25 +4,22 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
-import com.example.hallticketgen.Db.AppDatabase
-import com.example.hallticketgen.data.entity.Exam
-import com.example.hallticketgen.data.entity.Student
-import com.example.hallticketgen.model.HallTicketScreen
+import com.example.hallticketgen.model.Db.AppDatabase
+import com.example.hallticketgen.model.Db.data.entity.Exam
+import com.example.hallticketgen.model.Db.data.entity.Student
+import com.example.hallticketgen.navigation.AppNavGraph
+import com.example.hallticketgen.view.HallTicketScreen
 import com.example.hallticketgen.ui.theme.HallTIcketGenTheme
-
+import com.example.hallticketgen.view.HomeScreen
+import com.example.hallticketgen.viewmodel.HallTicketViewModel
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val db = AppDatabase.getDatabase(this)
 
         val repository = HallTicketRepository(
@@ -30,6 +27,11 @@ class MainActivity : ComponentActivity() {
             db.examDao(),
             db.hallTicketDao()
         )
+
+        val viewModel = HallTicketViewModel(
+            repository
+        )
+
         lifecycleScope.launch {
 
             db.studentDao().insert(
@@ -42,21 +44,24 @@ class MainActivity : ComponentActivity() {
 
             db.examDao().insert(
                 Exam(
+                    examId = 0,
                     examName = "Android Development",
                     examDate = "25 June",
-                    location = "Hyderabad",
-
+                    location = "Hyderabad"
                 )
             )
         }
+
         enableEdgeToEdge()
+
         setContent {
+
             HallTIcketGenTheme {
-                HallTicketScreen(
-                    repository = repository
+
+                AppNavGraph(
+                    viewModel = viewModel
                 )
             }
         }
     }
 }
-

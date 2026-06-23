@@ -304,7 +304,90 @@ hallTicket = repository.generateTicket()
 Avoid unnecessary duplicate operations, especially when they involve database or network calls.
 
 ---
+# 12. Git Push Rejected (Remote Ahead)
 
+### Error
+
+```text
+! [rejected] main -> main (fetch first)
+error: failed to push some refs
+Updates were rejected because the remote contains work that you do not have locally.
+```
+
+### Why?
+
+I edited `README.md` directly on GitHub after my initial push.
+
+This created a situation where:
+
+```text
+Local Repository ≠ GitHub Repository
+```
+
+GitHub had newer commits that my local project did not know about.
+
+### Fix
+
+First, pull the latest changes:
+
+```bash
+git pull origin main --rebase
+```
+
+Then push again:
+
+```bash
+git push origin main
+```
+
+### Lesson
+
+```text
+If changes are made both locally and on GitHub,
+always pull first before pushing.
+
+Git protects us from accidentally overwriting
+someone else's work.
+```
+
+### What I Learned About Git
+
+Useful commands:
+
+```bash
+git status
+```
+
+Shows current repository status.
+
+```bash
+git log --oneline
+```
+
+Shows commit history.
+
+```bash
+git pull origin main --rebase
+```
+
+Downloads remote changes and reapplies local commits.
+
+```bash
+git push origin main
+```
+
+Uploads local commits to GitHub.
+
+### Result
+
+Successfully pushed:
+
+```text
+Added debugging lessons documentation
+```
+
+and learned how to resolve a real-world Git synchronization issue.
+ 
 # Biggest Takeaways
 
 ## Room Architecture
